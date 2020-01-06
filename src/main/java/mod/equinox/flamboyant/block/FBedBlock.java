@@ -1,4 +1,4 @@
-package mod.equinox.flamboyant.block;
+/*package mod.equinox.flamboyant.block;
 
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -22,7 +22,6 @@ import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.stats.Stats;
 import net.minecraft.tileentity.BedTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
@@ -112,7 +111,7 @@ public class FBedBlock extends HorizontalBlock {
 
     /**
      * Block's chance to react to a living entity falling on it.
-     */
+     
     public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance) {
         super.onFallenUpon(worldIn, pos, entityIn, fallDistance * 0.5F);
     }
@@ -120,7 +119,7 @@ public class FBedBlock extends HorizontalBlock {
     /**
      * Called when an Entity lands on this Block. This method *must* update motionY because the entity will not do that
      * on its own
-     */
+     
     public void onLanded(IBlockReader worldIn, Entity entityIn) {
         if (entityIn.isSneaking()) {
             super.onLanded(worldIn, entityIn);
@@ -139,7 +138,7 @@ public class FBedBlock extends HorizontalBlock {
      * For example, fences make their connections to the passed in state if possible, and wet concrete powder immediately
      * returns its solidified counterpart.
      * Note that this method should ideally consider only the specific face passed in.
-     */
+     
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
         if (facing == getDirectionToOther(stateIn.get(PART), stateIn.get(HORIZONTAL_FACING))) {
             return facingState.getBlock() == this && facingState.get(PART) != stateIn.get(PART) ? stateIn.with(OCCUPIED, facingState.get(OCCUPIED)) : Blocks.AIR.getDefaultState();
@@ -150,7 +149,7 @@ public class FBedBlock extends HorizontalBlock {
 
     /**
      * Given a bed part and the direction it's facing, find the direction to move to get the other bed part
-     */
+     
     private static Direction getDirectionToOther(BedPart p_208070_0_, Direction p_208070_1_) {
         return p_208070_0_ == BedPart.FOOT ? p_208070_1_ : p_208070_1_.getOpposite();
     }
@@ -158,7 +157,7 @@ public class FBedBlock extends HorizontalBlock {
     /**
      * Spawns the block's drops in the world. By the time this is called the Block has possibly been set to air via
      * Block.removedByPlayer
-     */
+     
     public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
         super.harvestBlock(worldIn, player, pos, Blocks.AIR.getDefaultState(), te, stack);
     }
@@ -166,7 +165,7 @@ public class FBedBlock extends HorizontalBlock {
     /**
      * Called before the Block is set to air in the world. Called regardless of if the player's tool can actually collect
      * this block
-     */
+     
     public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
         BedPart bedpart = state.get(PART);
         BlockPos blockpos = pos.offset(getDirectionToOther(bedpart, state.get(HORIZONTAL_FACING)));
@@ -279,7 +278,7 @@ public class FBedBlock extends HorizontalBlock {
     /**
      * Gets the render layer this block will render on. SOLID for solid blocks, CUTOUT or CUTOUT_MIPPED for on-off
      * transparency (glass, reeds), TRANSLUCENT for fully blended transparency (stained glass)
-     */
+     
     public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
     }
@@ -309,3 +308,4 @@ public class FBedBlock extends HorizontalBlock {
         return false;
     }
 }
+*/

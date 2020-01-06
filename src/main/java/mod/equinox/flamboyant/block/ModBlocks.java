@@ -1,9 +1,17 @@
 package mod.equinox.flamboyant.block;
 
-import net.minecraft.block.*;
-import net.minecraft.item.DyeColor;
+import static mod.equinox.flamboyant.block.BlockProperties.CONCRETE;
+import static mod.equinox.flamboyant.block.BlockProperties.CONCRETEPOWDER;
+import static mod.equinox.flamboyant.block.BlockProperties.GLASS;
+import static mod.equinox.flamboyant.block.BlockProperties.GLAZEDTERRACOTTA;
+import static mod.equinox.flamboyant.block.BlockProperties.TERRACOTTA;
+import static mod.equinox.flamboyant.block.BlockProperties.WOOL;
 
-import static mod.equinox.flamboyant.block.BlockProperties.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.ConcretePowderBlock;
+import net.minecraft.block.GlassBlock;
+import net.minecraft.block.GlazedTerracottaBlock;
+import net.minecraft.block.PaneBlock;
 
 public class ModBlocks {
     public static Block AMBERWOOL = new Block(WOOL).setRegistryName("amber_wool");
@@ -102,41 +110,39 @@ public class ModBlocks {
     public static Block SKYBLUECONCRETEPOWDER = new ConcretePowderBlock(SKYBLUECONCRETE, CONCRETEPOWDER).setRegistryName("sky_blue_concrete_powder");
     public static Block SLATEGRAYCONCRETEPOWDER = new ConcretePowderBlock(SLATEGRAYCONCRETE, CONCRETEPOWDER).setRegistryName("slate_gray_concrete_powder");
     public static Block VIOLETCONCRETEPOWDER = new ConcretePowderBlock(VIOLETCONCRETE, CONCRETEPOWDER).setRegistryName("violet_concrete_powder");
-    public static Block AMBERGLASS = new FGlassBlock(GLASS).setRegistryName("amber_stained_glass");
-    public static Block BEIGEGLASS = new FGlassBlock(GLASS).setRegistryName("beige_stained_glass");
-    public static Block CREAMGLASS = new FGlassBlock(GLASS).setRegistryName("cream_stained_glass");
-    public static Block DARKGREENGLASS = new FGlassBlock(GLASS).setRegistryName("dark_green_stained_glass");
-    public static Block FORESTGREENGLASS = new FGlassBlock(GLASS).setRegistryName("forest_green_stained_glass");
-    public static Block HOTPINKGLASS = new FGlassBlock(GLASS).setRegistryName("hot_pink_stained_glass");
-    public static Block INDIGOGLASS = new FGlassBlock(GLASS).setRegistryName("indigo_stained_glass");
-    public static Block MAROONGLASS = new FGlassBlock(GLASS).setRegistryName("maroon_stained_glass");
-    public static Block NAVYGLASS = new FGlassBlock(GLASS).setRegistryName("navy_stained_glass");
-    public static Block OLIVEGLASS = new FGlassBlock(GLASS).setRegistryName("olive_stained_glass");
-    public static Block PALEGREENGLASS = new FGlassBlock(GLASS).setRegistryName("pale_green_stained_glass");
-    public static Block PALEPINKGLASS = new FGlassBlock(GLASS).setRegistryName("pale_pink_stained_glass");
-    public static Block PALEYELLOWGLASS = new FGlassBlock(GLASS).setRegistryName("pale_yellow_stained_glass");
-    public static Block SKYBLUEGLASS = new FGlassBlock(GLASS).setRegistryName("sky_blue_stained_glass");
-    public static Block SLATEGRAYGLASS = new FGlassBlock(GLASS).setRegistryName("slate_gray_stained_glass");
-    public static Block VIOLETGLASS = new FGlassBlock(GLASS).setRegistryName("violet_stained_glass");
-    public static Block AMBERPANE = new FPaneBlock(GLASS).setRegistryName("amber_stained_glass_pane");
-    public static Block BEIGEPANE = new FPaneBlock(GLASS).setRegistryName("beige_stained_glass_pane");
-    public static Block CREAMPANE = new FPaneBlock(GLASS).setRegistryName("cream_stained_glass_pane");
-    public static Block DARKGREENPANE = new FPaneBlock(GLASS).setRegistryName("dark_green_stained_glass_pane");
-    public static Block FORESTGREENPANE = new FPaneBlock(GLASS).setRegistryName("forest_green_stained_glass_pane");
-    public static Block HOTPINKPANE = new FPaneBlock(GLASS).setRegistryName("hot_pink_stained_glass_pane");
-    public static Block INDIGOPANE = new FPaneBlock(GLASS).setRegistryName("indigo_stained_glass_pane");
-    public static Block MAROONPANE = new FPaneBlock(GLASS).setRegistryName("maroon_stained_glass_pane");
-    public static Block NAVYPANE = new FPaneBlock(GLASS).setRegistryName("navy_stained_glass_pane");
-    public static Block OLIVEPANE = new FPaneBlock(GLASS).setRegistryName("olive_stained_glass_pane");
-    public static Block PALEGREENPANE = new FPaneBlock(GLASS).setRegistryName("pale_green_stained_glass_pane");
-    public static Block PALEPINKPANE = new FPaneBlock(GLASS).setRegistryName("pale_pink_stained_glass_pane");
-    public static Block PALEYELLOWPANE = new FPaneBlock(GLASS).setRegistryName("pale_yellow_stained_glass_pane");
-    public static Block SKYBLUEPANE = new FPaneBlock(GLASS).setRegistryName("sky_blue_stained_glass_pane");
-    public static Block SLATEGRAYPANE = new FPaneBlock(GLASS).setRegistryName("slate_gray_stained_glass_pane");
-    public static Block VIOLETPANE = new FPaneBlock(GLASS).setRegistryName("violet_stained_glass_pane");
-    public static Block AMBERBED = new FBedBlock(BED).setRegistryName("amber_bed");
-
-
+    public static Block AMBERGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("amber_stained_glass");
+    public static Block BEIGEGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("beige_stained_glass");
+    public static Block CREAMGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("cream_stained_glass");
+    public static Block DARKGREENGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("dark_green_stained_glass");
+    public static Block FORESTGREENGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("forest_green_stained_glass");
+    public static Block HOTPINKGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("hot_pink_stained_glass");
+    public static Block INDIGOGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("indigo_stained_glass");
+    public static Block MAROONGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("maroon_stained_glass");
+    public static Block NAVYGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("navy_stained_glass");
+    public static Block OLIVEGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("olive_stained_glass");
+    public static Block PALEGREENGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("pale_green_stained_glass");
+    public static Block PALEPINKGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("pale_pink_stained_glass");
+    public static Block PALEYELLOWGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("pale_yellow_stained_glass");
+    public static Block SKYBLUEGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("sky_blue_stained_glass");
+    public static Block SLATEGRAYGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("slate_gray_stained_glass");
+    public static Block VIOLETGLASS = new GlassBlock(GLASS.func_226896_b_()).setRegistryName("violet_stained_glass");
+    public static Block AMBERPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("amber_stained_glass_pane");
+    public static Block BEIGEPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("beige_stained_glass_pane");
+    public static Block CREAMPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("cream_stained_glass_pane");
+    public static Block DARKGREENPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("dark_green_stained_glass_pane");
+    public static Block FORESTGREENPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("forest_green_stained_glass_pane");
+    public static Block HOTPINKPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("hot_pink_stained_glass_pane");
+    public static Block INDIGOPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("indigo_stained_glass_pane");
+    public static Block MAROONPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("maroon_stained_glass_pane");
+    public static Block NAVYPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("navy_stained_glass_pane");
+    public static Block OLIVEPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("olive_stained_glass_pane");
+    public static Block PALEGREENPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("pale_green_stained_glass_pane");
+    public static Block PALEPINKPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("pale_pink_stained_glass_pane");
+    public static Block PALEYELLOWPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("pale_yellow_stained_glass_pane");
+    public static Block SKYBLUEPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("sky_blue_stained_glass_pane");
+    public static Block SLATEGRAYPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("slate_gray_stained_glass_pane");
+    public static Block VIOLETPANE = new PaneBlock(GLASS.func_226896_b_()).setRegistryName("violet_stained_glass_pane");
+    //public static Block AMBERBED = new FBedBlock(BED).setRegistryName("amber_bed");
 
 
 }

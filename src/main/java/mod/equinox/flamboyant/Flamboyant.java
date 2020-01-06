@@ -1,42 +1,96 @@
 package mod.equinox.flamboyant;
 
-import mod.equinox.flamboyant.setup.ClientProxy;
-import mod.equinox.flamboyant.setup.IProxy;
 import mod.equinox.flamboyant.setup.ModSetup;
-import mod.equinox.flamboyant.setup.ServerProxy;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import static mod.equinox.flamboyant.block.ModBlocks.*;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 // The value here should match an entry in the META-INF/mods.toml file
+//The value here should match an entry in the META-INF/mods.toml file
 @Mod("flamboyant")
-public class Flamboyant {
+public class Flamboyant
+{
+	public static final String MODID = "flamboyant";
 
-    public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
+ // Directly reference a log4j logger.
+ private static final Logger LOGGER = LogManager.getLogger();
 
-    public static ModSetup setup = new ModSetup();
+ public Flamboyant() {
+ 	FMLJavaModLoadingContext.get().getModEventBus();
+     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
+     MinecraftForge.EVENT_BUS.register(this);
+ }
+ 
+ public static ModSetup setup = new ModSetup();
 
-    private static final Logger LOGGER = LogManager.getLogger();
+ private void setup(final FMLCommonSetupEvent event)
+ {
+     LOGGER.info("HELLO FROM PREINIT");
+     LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+     setup.init();
+ }
 
-    public Flamboyant() {
-        // Register the setup method for mod loading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-    }
+	@OnlyIn(Dist.CLIENT)
+	private void setupClient(final FMLClientSetupEvent event) {		setupRenderLayer();
 
-    private void setup(final FMLCommonSetupEvent event) {
-        setup.init();
-        proxy.init();
-    }
+		LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+	}
+    
+    private void setupRenderLayer()
+	{
+		RenderTypeLookup.setRenderLayer(AMBERGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(BEIGEGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(CREAMGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(DARKGREENGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(FORESTGREENGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(HOTPINKGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(INDIGOGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(MAROONGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(NAVYGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(OLIVEGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(PALEGREENGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(PALEPINKGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(PALEYELLOWGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(SKYBLUEGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(SLATEGRAYGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(VIOLETGLASS,RenderType.func_228645_f_());
+
+		RenderTypeLookup.setRenderLayer(AMBERPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(BEIGEPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(CREAMPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(DARKGREENPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(FORESTGREENPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(HOTPINKPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(INDIGOPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(MAROONPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(NAVYPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(OLIVEPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(PALEGREENPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(PALEPINKPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(PALEYELLOWPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(SKYBLUEPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(SLATEGRAYPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(VIOLETPANE,RenderType.func_228645_f_());
+		
+
+	}
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
     // Event bus for receiving Registry Events)
