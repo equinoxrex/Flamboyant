@@ -61,8 +61,8 @@ public class Flamboyant {
                     AMBERGLASS, BEIGEGLASS, CREAMGLASS, DARKGREENGLASS, FORESTGREENGLASS, HOTPINKGLASS, INDIGOGLASS, MAROONGLASS,
                     NAVYGLASS, OLIVEGLASS, PALEGREENGLASS, PALEPINKGLASS, PALEYELLOWGLASS, SKYBLUEGLASS, SLATEGRAYGLASS, VIOLETGLASS,
                     AMBERPANE, BEIGEPANE, CREAMPANE, DARKGREENPANE, FORESTGREENPANE, HOTPINKPANE, INDIGOPANE, MAROONPANE,
-                    NAVYPANE, OLIVEPANE, PALEGREENPANE, PALEPINKPANE, PALEYELLOWPANE, SKYBLUEPANE, SLATEGRAYPANE, VIOLETPANE,
-                    AMBERBED
+                    NAVYPANE, OLIVEPANE, PALEGREENPANE, PALEPINKPANE, PALEYELLOWPANE, SKYBLUEPANE, SLATEGRAYPANE, VIOLETPANE
+                    // AMBERBED
             );
         }
 
@@ -214,7 +214,7 @@ public class Flamboyant {
             event.getRegistry().register(new BlockItem(SKYBLUEPANE, properties).setRegistryName("sky_blue_stained_glass_pane"));
             event.getRegistry().register(new BlockItem(SLATEGRAYPANE, properties).setRegistryName("slate_gray_stained_glass_pane"));
             event.getRegistry().register(new BlockItem(VIOLETPANE, properties).setRegistryName("violet_stained_glass_pane"));
-            event.getRegistry().register(new BlockItem(AMBERBED, properties).setRegistryName("amber_bed"));
+            // event.getRegistry().register(new BlockItem(AMBERBED, properties).setRegistryName("amber_bed"));
             
         }
     }
