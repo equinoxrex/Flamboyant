@@ -44,7 +44,6 @@ public class Flamboyant
  {
      LOGGER.info("HELLO FROM PREINIT");
      LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
-     setup.init();
  }
 
 	@OnlyIn(Dist.CLIENT)
@@ -123,7 +122,7 @@ public class Flamboyant
         @SubscribeEvent
         public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
             Item.Properties properties = new Item.Properties()
-                    .group(setup.itemGroup);
+                    .group(ModSetup.itemGroup);
             event.getRegistry().register(new Item(properties).setRegistryName("amber_dye"));
             event.getRegistry().register(new Item(properties).setRegistryName("beige_dye"));
             event.getRegistry().register(new Item(properties).setRegistryName("cream_dye"));

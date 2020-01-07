@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class ModSetup {
 
-    public ItemGroup itemGroup = new ItemGroup("flamboyant") {
+    public static ItemGroup itemGroup = new ItemGroup("flamboyant") {
 
         @Override
         public ItemStack createIcon() {
