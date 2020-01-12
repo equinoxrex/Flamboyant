@@ -8,14 +8,15 @@ import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
 import static mod.equinox.flamboyant.block.ModBlocks.*;
 
 import org.apache.logging.log4j.LogManager;
@@ -24,72 +25,70 @@ import org.apache.logging.log4j.Logger;
 // The value here should match an entry in the META-INF/mods.toml file
 //The value here should match an entry in the META-INF/mods.toml file
 @Mod("flamboyant")
-public class Flamboyant
-{
-	public static final String MODID = "flamboyant";
+public class Flamboyant {
+    public static final String MODID = "flamboyant";
 
- // Directly reference a log4j logger.
- private static final Logger LOGGER = LogManager.getLogger();
+    // Directly reference a log4j logger.
+    private static final Logger LOGGER = LogManager.getLogger();
 
- public Flamboyant() {
- 	FMLJavaModLoadingContext.get().getModEventBus();
-     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
-     MinecraftForge.EVENT_BUS.register(this);
- }
- 
- public static ModSetup setup = new ModSetup();
+    public Flamboyant() {
+        FMLJavaModLoadingContext.get().getModEventBus();
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        DistExecutor.runWhenOn(Dist.CLIENT, () -> this::initClientSetup);
+        MinecraftForge.EVENT_BUS.register(this);
+    }
 
- private void setup(final FMLCommonSetupEvent event)
- {
-     LOGGER.info("HELLO FROM PREINIT");
-     LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
- }
+    public static ModSetup setup = new ModSetup();
 
-	@OnlyIn(Dist.CLIENT)
-	private void setupClient(final FMLClientSetupEvent event) {		setupRenderLayer();
+    private void setup(final FMLCommonSetupEvent event) {
+        LOGGER.info("HELLO FROM PREINIT");
+        LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
+    }
 
-		LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
-	}
-    
-    private void setupRenderLayer()
-	{
-		RenderTypeLookup.setRenderLayer(AMBERGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(BEIGEGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(CREAMGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(DARKGREENGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(FORESTGREENGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(HOTPINKGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(INDIGOGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(MAROONGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(NAVYGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(OLIVEGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(PALEGREENGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(PALEPINKGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(PALEYELLOWGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(SKYBLUEGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(SLATEGRAYGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(VIOLETGLASS,RenderType.func_228645_f_());
+    private void initClientSetup(){
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
+    }
 
-		RenderTypeLookup.setRenderLayer(AMBERPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(BEIGEPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(CREAMPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(DARKGREENPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(FORESTGREENPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(HOTPINKPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(INDIGOPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(MAROONPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(NAVYPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(OLIVEPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(PALEGREENPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(PALEPINKPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(PALEYELLOWPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(SKYBLUEPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(SLATEGRAYPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(VIOLETPANE,RenderType.func_228645_f_());
-		
+    private void setupClient(final FMLClientSetupEvent event) {
+        setupRenderLayer();
+        LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+    }
 
-	}
+    private void setupRenderLayer() {
+        RenderTypeLookup.setRenderLayer(AMBERGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(BEIGEGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(CREAMGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(DARKGREENGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(FORESTGREENGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(HOTPINKGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(INDIGOGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(MAROONGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(NAVYGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(OLIVEGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(PALEGREENGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(PALEPINKGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(PALEYELLOWGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(SKYBLUEGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(SLATEGRAYGLASS, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(VIOLETGLASS, RenderType.func_228645_f_());
+
+        RenderTypeLookup.setRenderLayer(AMBERPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(BEIGEPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(CREAMPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(DARKGREENPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(FORESTGREENPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(HOTPINKPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(INDIGOPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(MAROONPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(NAVYPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(OLIVEPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(PALEGREENPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(PALEPINKPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(PALEYELLOWPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(SKYBLUEPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(SLATEGRAYPANE, RenderType.func_228645_f_());
+        RenderTypeLookup.setRenderLayer(VIOLETPANE, RenderType.func_228645_f_());
+    }
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
     // Event bus for receiving Registry Events)
@@ -106,7 +105,7 @@ public class Flamboyant
                     AMBERTERRACOTTA, BEIGETERRACOTTA, CREAMTERRACOTTA, DARKGREENTERRACOTTA, FORESTGREENTERRACOTTA, HOTPINKTERRACOTTA, INDIGOTERRACOTTA, MAROONTERRACOTTA,
                     NAVYTERRACOTTA, OLIVETERRACOTTA, PALEGREENTERRACOTTA, PALEPINKTERRACOTTA, PALEYELLOWTERRACOTTA, SKYBLUETERRACOTTA, SLATEGRAYTERRACOTTA, VIOLETTERRACOTTA,
                     AMBERGLAZEDTERRACOTTA, BEIGEGLAZEDTERRACOTTA, CREAMGLAZEDTERRACOTTA, DARKGREENGLAZEDTERRACOTTA, FORESTGREENGLAZEDTERRACOTTA, HOTPINKGLAZEDTERRACOTTA, INDIGOGLAZEDTERRACOTTA, MAROONGLAZEDTERRACOTTA,
-                    NAVYGLAZEDTERRACOTTA, OLIVEGLAZEDTERRACOTTA, PALEGREENGLAZEDTERRACOTTA, PALEPINKGLAZEDTERRACOTTA, PALEYELLOWGLAZEDTERRACOTTA, SKYBLUEGLAZEDTERRACOTTA,SLATEGRAYGLAZEDTERRACOTTA, VIOLETGLAZEDTERRACOTTA,
+                    NAVYGLAZEDTERRACOTTA, OLIVEGLAZEDTERRACOTTA, PALEGREENGLAZEDTERRACOTTA, PALEPINKGLAZEDTERRACOTTA, PALEYELLOWGLAZEDTERRACOTTA, SKYBLUEGLAZEDTERRACOTTA, SLATEGRAYGLAZEDTERRACOTTA, VIOLETGLAZEDTERRACOTTA,
                     AMBERCONCRETE, BEIGECONCRETE, CREAMCONCRETE, DARKGREENCONCRETE, FORESTGREENCONCRETE, HOTPINKCONCRETE, INDIGOCONCRETE, MAROONCONCRETE,
                     NAVYCONCRETE, OLIVECONCRETE, PALEGREENCONCRETE, PALEPINKCONCRETE, PALEYELLOWCONCRETE, SKYBLUECONCRETE, SLATEGRAYCONCRETE, VIOLETCONCRETE,
                     AMBERCONCRETEPOWDER, BEIGECONCRETEPOWDER, CREAMCONCRETEPOWDER, DARKGREENCONCRETEPOWDER, FORESTGREENCONCRETEPOWDER, HOTPINKCONCRETEPOWDER, INDIGOCONCRETEPOWDER, MAROONCONCRETEPOWDER,
@@ -268,7 +267,6 @@ public class Flamboyant
             event.getRegistry().register(new BlockItem(SLATEGRAYPANE, properties).setRegistryName("slate_gray_stained_glass_pane"));
             event.getRegistry().register(new BlockItem(VIOLETPANE, properties).setRegistryName("violet_stained_glass_pane"));
             // event.getRegistry().register(new BlockItem(AMBERBED, properties).setRegistryName("amber_bed"));
-            
         }
     }
 }
