@@ -14,7 +14,7 @@ loaderVersion="[28,)" #mandatory (26 is current forge version)
 # The modid of the mod
 modId="flamboyant" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-version="1.0.1" #mandatory
+version="1.0.2" #mandatory
  # A display name for the mod
 displayName="Flamboyant" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification <here>
@@ -31,7 +31,7 @@ authors="Equinox" #optional
 description='''
 A §msimple§r mod that adds 16 colours to the game on top of the 16 we already have (§1O§2o§3o§4h, §5F§8a§9n§ac§by)
 
-Credit goes to Paradiscal (five#8320) for the dye item textures
+Credit goes to Paradiscal (five#8320) for the dye item textures, and thanks to bageldotjpg for helping with programming
 
 If you want to tell me about bugs, use the curseforge page or contact me on discord (Equinox#6574)
 '''
