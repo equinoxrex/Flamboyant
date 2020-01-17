@@ -2,19 +2,17 @@ package mod.equinox.flamboyant;
 
 import mod.equinox.flamboyant.setup.ModSetup;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import static mod.equinox.flamboyant.block.ModBlocks.*;
 
@@ -29,26 +27,19 @@ public class Flamboyant
 	public static final String MODID = "flamboyant";
 
  // Directly reference a log4j logger.
- private static final Logger LOGGER = LogManager.getLogger();
+	private static final Logger LOGGER = LogManager.getLogger();
+	
+    public Flamboyant() {
+        MinecraftForge.EVENT_BUS.register(this);
+        DistExecutor.runWhenOn(Dist.CLIENT, () -> this::initClientSetup);
+    }
 
- public Flamboyant() {
- 	FMLJavaModLoadingContext.get().getModEventBus();
-     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-     FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
-     MinecraftForge.EVENT_BUS.register(this);
- }
- 
- public static ModSetup setup = new ModSetup();
-
- private void setup(final FMLCommonSetupEvent event)
- {
-     LOGGER.info("HELLO FROM PREINIT");
-     LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
- }
-
-	@OnlyIn(Dist.CLIENT)
-	private void setupClient(final FMLClientSetupEvent event) {		setupRenderLayer();
-
+    private void initClientSetup(){
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
+    }
+    
+	private void setupClient(final FMLClientSetupEvent event) {		
+		setupRenderLayer();
 		LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
 	}
     
@@ -87,8 +78,6 @@ public class Flamboyant
 		RenderTypeLookup.setRenderLayer(SKYBLUEPANE,RenderType.func_228645_f_());
 		RenderTypeLookup.setRenderLayer(SLATEGRAYPANE,RenderType.func_228645_f_());
 		RenderTypeLookup.setRenderLayer(VIOLETPANE,RenderType.func_228645_f_());
-		
-
 	}
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
@@ -106,7 +95,7 @@ public class Flamboyant
                     AMBERTERRACOTTA, BEIGETERRACOTTA, CREAMTERRACOTTA, DARKGREENTERRACOTTA, FORESTGREENTERRACOTTA, HOTPINKTERRACOTTA, INDIGOTERRACOTTA, MAROONTERRACOTTA,
                     NAVYTERRACOTTA, OLIVETERRACOTTA, PALEGREENTERRACOTTA, PALEPINKTERRACOTTA, PALEYELLOWTERRACOTTA, SKYBLUETERRACOTTA, SLATEGRAYTERRACOTTA, VIOLETTERRACOTTA,
                     AMBERGLAZEDTERRACOTTA, BEIGEGLAZEDTERRACOTTA, CREAMGLAZEDTERRACOTTA, DARKGREENGLAZEDTERRACOTTA, FORESTGREENGLAZEDTERRACOTTA, HOTPINKGLAZEDTERRACOTTA, INDIGOGLAZEDTERRACOTTA, MAROONGLAZEDTERRACOTTA,
-                    NAVYGLAZEDTERRACOTTA, OLIVEGLAZEDTERRACOTTA, PALEGREENGLAZEDTERRACOTTA, PALEPINKGLAZEDTERRACOTTA, PALEYELLOWGLAZEDTERRACOTTA, SKYBLUEGLAZEDTERRACOTTA,SLATEGRAYGLAZEDTERRACOTTA, VIOLETGLAZEDTERRACOTTA,
+                    NAVYGLAZEDTERRACOTTA, OLIVEGLAZEDTERRACOTTA, PALEGREENGLAZEDTERRACOTTA, PALEPINKGLAZEDTERRACOTTA, PALEYELLOWGLAZEDTERRACOTTA, SKYBLUEGLAZEDTERRACOTTA, SLATEGRAYGLAZEDTERRACOTTA, VIOLETGLAZEDTERRACOTTA,
                     AMBERCONCRETE, BEIGECONCRETE, CREAMCONCRETE, DARKGREENCONCRETE, FORESTGREENCONCRETE, HOTPINKCONCRETE, INDIGOCONCRETE, MAROONCONCRETE,
                     NAVYCONCRETE, OLIVECONCRETE, PALEGREENCONCRETE, PALEPINKCONCRETE, PALEYELLOWCONCRETE, SKYBLUECONCRETE, SLATEGRAYCONCRETE, VIOLETCONCRETE,
                     AMBERCONCRETEPOWDER, BEIGECONCRETEPOWDER, CREAMCONCRETEPOWDER, DARKGREENCONCRETEPOWDER, FORESTGREENCONCRETEPOWDER, HOTPINKCONCRETEPOWDER, INDIGOCONCRETEPOWDER, MAROONCONCRETEPOWDER,
@@ -121,8 +110,7 @@ public class Flamboyant
 
         @SubscribeEvent
         public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
-            Item.Properties properties = new Item.Properties()
-                    .group(ModSetup.itemGroup);
+            Item.Properties properties = new Item.Properties().group(ModSetup.itemGroup);
             event.getRegistry().register(new Item(properties).setRegistryName("amber_dye"));
             event.getRegistry().register(new Item(properties).setRegistryName("beige_dye"));
             event.getRegistry().register(new Item(properties).setRegistryName("cream_dye"));
