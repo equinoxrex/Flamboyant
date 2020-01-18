@@ -13,4 +13,5 @@ public class BlockProperties {
     public static final Block.Properties CONCRETEPOWDER = Block.Properties.create(Material.SAND).hardnessAndResistance(0.5F).sound(SoundType.SAND);
     public static final Block.Properties GLASS = Block.Properties.create(Material.GLASS).hardnessAndResistance(0.3F).sound(SoundType.GLASS);
     public static final Block.Properties BED = Block.Properties.create(Material.WOOL).sound(SoundType.WOOD).hardnessAndResistance(0.2F);
+    public static final Block.Properties CARPET = Block.Properties.create(Material.CARPET).hardnessAndResistance(0.1F).sound(SoundType.CLOTH);
 }
