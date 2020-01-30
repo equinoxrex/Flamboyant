@@ -45,39 +45,39 @@ public class Flamboyant
     
     private void setupRenderLayer()
 	{
-		RenderTypeLookup.setRenderLayer(AMBERGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(BEIGEGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(CREAMGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(DARKGREENGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(FORESTGREENGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(HOTPINKGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(INDIGOGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(MAROONGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(NAVYGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(OLIVEGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(PALEGREENGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(PALEPINKGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(PALEYELLOWGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(SKYBLUEGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(SLATEGRAYGLASS,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(VIOLETGLASS,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(AMBERGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(BEIGEGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(CREAMGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(DARKGREENGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(FORESTGREENGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(HOTPINKGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(INDIGOGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(MAROONGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(NAVYGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(OLIVEGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(PALEGREENGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(PALEPINKGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(PALEYELLOWGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(SKYBLUEGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(SLATEGRAYGLASS,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(VIOLETGLASS,RenderType.translucent());
 
-		RenderTypeLookup.setRenderLayer(AMBERPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(BEIGEPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(CREAMPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(DARKGREENPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(FORESTGREENPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(HOTPINKPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(INDIGOPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(MAROONPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(NAVYPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(OLIVEPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(PALEGREENPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(PALEPINKPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(PALEYELLOWPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(SKYBLUEPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(SLATEGRAYPANE,RenderType.func_228645_f_());
-		RenderTypeLookup.setRenderLayer(VIOLETPANE,RenderType.func_228645_f_());
+		RenderTypeLookup.setRenderLayer(AMBERPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(BEIGEPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(CREAMPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(DARKGREENPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(FORESTGREENPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(HOTPINKPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(INDIGOPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(MAROONPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(NAVYPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(OLIVEPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(PALEGREENPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(PALEPINKPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(PALEYELLOWPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(SKYBLUEPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(SLATEGRAYPANE,RenderType.translucent());
+		RenderTypeLookup.setRenderLayer(VIOLETPANE,RenderType.translucent());
 	}
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
