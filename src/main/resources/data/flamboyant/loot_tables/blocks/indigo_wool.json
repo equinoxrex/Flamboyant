@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "flamboyant:indigo_concrete"
+          "name": "flamboyant:indigo_wool"
         }
       ],
       "conditions": [
