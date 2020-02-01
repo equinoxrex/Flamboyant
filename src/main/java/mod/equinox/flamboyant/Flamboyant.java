@@ -7,15 +7,12 @@ import mod.equinox.flamboyant.setup.ServerProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import static mod.equinox.flamboyant.block.ModBlocks.*;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -26,7 +23,7 @@ public class Flamboyant {
 
     public static ModSetup setup = new ModSetup();
 
-    private static final Logger LOGGER = LogManager.getLogger();
+    //private static final Logger LOGGER = LogManager.getLogger();
 
     public Flamboyant() {
         // Register the setup method for mod loading
