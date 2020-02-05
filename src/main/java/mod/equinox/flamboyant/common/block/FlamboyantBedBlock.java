@@ -43,7 +43,7 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class FBedBlock extends HorizontalBlock {
+public class FlamboyantBedBlock extends HorizontalBlock {
     public static final EnumProperty<BedPart> PART = BlockStateProperties.BED_PART;
     public static final BooleanProperty OCCUPIED = BlockStateProperties.OCCUPIED;
     protected static final VoxelShape field_220176_c = Block.makeCuboidShape(0.0D, 3.0D, 0.0D, 16.0D, 9.0D, 16.0D);
@@ -56,7 +56,7 @@ public class FBedBlock extends HorizontalBlock {
     protected static final VoxelShape field_220183_j = VoxelShapes.or(field_220176_c, field_220177_d, field_220178_e);
     protected static final VoxelShape field_220184_k = VoxelShapes.or(field_220176_c, field_220179_f, field_220180_g);
 
-    public FBedBlock(Block.Properties properties) {
+    public FlamboyantBedBlock(Block.Properties properties) {
         super(properties);
         this.setDefaultState(this.stateContainer.getBaseState().with(PART, BedPart.FOOT).with(OCCUPIED, Boolean.valueOf(false)));
     }
