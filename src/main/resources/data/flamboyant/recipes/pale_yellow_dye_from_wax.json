@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "pale_yellow_dye",
+  "ingredients": [
+    {
+      "item": "buzzierbees:wax"
+    }
+  ],
+  "result": {
+    "item": "flamboyant:pale_yellow_dye"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "buzzierbees"
+    }
+  ]
+}
