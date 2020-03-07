@@ -15,7 +15,7 @@ apply plugin: 'idea'
 apply plugin: 'java'
 apply plugin: 'maven-publish'
 
-version = '2.0.0'
+version = '2.0.1'
 group = 'mod.equinox.flamboyant' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'flamboyant'
 

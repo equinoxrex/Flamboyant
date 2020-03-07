@@ -34,5 +34,6 @@ public class Flamboyant {
     }
     
     private void clientSetup(final FMLClientSetupEvent event) {
+    	FlamboyantBlocks.setupRenderLayer();
     }
 }
